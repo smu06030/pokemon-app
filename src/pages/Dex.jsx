@@ -1,8 +1,11 @@
 import React from 'react'
+import Dashboard from '../components/Layout/Dashboard'
 
 const Dex = () => {
   return (
-    <div>Dex</div>
+    <>
+      <Dashboard/>
+    </>
   )
 }
 
