@@ -6,6 +6,7 @@ import PokemonLogo from "../../assets/PokemonLogo";
 const Logo = styled.header`
   font-size: 1rem;
   font-weight: 700;
+  margin: 1rem 0;
 `;
 
 const Header = () => {
