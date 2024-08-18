@@ -12,7 +12,7 @@ const PokemonCardWrapper = styled.div`
 
 const PokemonList = () => {
   const pokemonCtx = useContext(PokemonContext);
-
+  
   const allPokemon = pokemonCtx.allPokemon.map((pokemon) => {
     return <PokemonCard key={pokemon.id} pokemon={pokemon} buttonName="추가" />;
   });

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Btn = styled.button`
-  background-color: #ff0000;
+  background-color: #d8d8d8;
   color: #fff;
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : "1rem")};
   border-radius: 6px;

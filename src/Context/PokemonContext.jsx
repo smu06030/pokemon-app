@@ -4,7 +4,7 @@ const PokemonContext = React.createContext({
   allPokemon: [],
   selectedPokemon: [],
   addPokemon: (pokemon, id) => {},
-  deletePokemon: (id) => {},
+  deletePokemon: (pokemon, id) => {},
 });
 
 export default PokemonContext

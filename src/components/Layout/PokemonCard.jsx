@@ -48,7 +48,7 @@ const PokemonCard = ({ pokemon, buttonName }) => {
 
   // 포켓몬 삭제
   const deletePokemonHandler = () => {
-    pokemonCtx.deletePokemon(id);
+    pokemonCtx.deletePokemon(pokemon, id);
   };
 
   const onClickEvent = buttonName === "추가" ? addPokemonHandler : deletePokemonHandler;
