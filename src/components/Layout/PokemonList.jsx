@@ -9,12 +9,20 @@ const PokemonCardWrapper = styled.div`
   gap: 1rem;
 `;
 
-const PokemonList = ({ allPokemon }) => {
+const PokemonList = ({ allPokemon, selectedPokemon, setSelectedPokemon }) => {
   return (
     <Card>
       <PokemonCardWrapper>
         {allPokemon.map((pokemon) => {
-          return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+          return (
+            <PokemonCard
+              key={pokemon.id}
+              pokemon={pokemon}
+              buttonName="추가"
+              selectedPokemon={selectedPokemon}
+              setSelectedPokemon={setSelectedPokemon}
+            />
+          );
         })}
       </PokemonCardWrapper>
     </Card>

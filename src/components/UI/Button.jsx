@@ -9,6 +9,7 @@ const Btn = styled.button`
   padding: 0.5rem 1rem;
   margin: 2rem 0 1rem 0;
   border: 0;
+  z-index: 99;
   cursor: pointer;
   transition: all 0.3s;
   
@@ -17,9 +18,8 @@ const Btn = styled.button`
   }
 `;
 
-const Button = ({ children, fontSize=null }) => {
-  console.log(fontSize)
-  return <Btn $fontSize={fontSize !== null ? fontSize : undefined}>{children}</Btn>;
+const Button = ({ children, fontSize=null, onClick = null}) => {
+  return <Btn $fontSize={fontSize !== null ? fontSize : undefined} onClick={onClick}>{children}</Btn>;
 };
 
 export default Button;
