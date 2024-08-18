@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../UI/Card";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import Pokeball from "./../../assets/Pokeball";
+import PokemonContext from "../../Context/PokemonContext";
 
 const Title = styled.h2`
   color: #ce0000;
@@ -32,16 +33,16 @@ const EmptyCardWrapper = styled.div`
   border-radius: 0.5rem;
 `;
 
-const Dashboard = ({ selectedPokemon, setSelectedPokemon }) => {
-  const emptySlots = 6 - selectedPokemon.length;
+const Dashboard = () => {
+  const pokemonCtx = useContext(PokemonContext);
+
+  const emptySlots = 6 - pokemonCtx.selectedPokemon.length;
 
   // 추가한 포켓몬 리스트
-  const myPokemonList = selectedPokemon.map((pokemon) => (
+  const myPokemonList = pokemonCtx.selectedPokemon.map((pokemon) => (
     <PokemonCard
       key={pokemon.id}
       pokemon={pokemon}
-      selectedPokemon={selectedPokemon}
-      setSelectedPokemon={setSelectedPokemon}
       buttonName="삭제"
     />
   ));

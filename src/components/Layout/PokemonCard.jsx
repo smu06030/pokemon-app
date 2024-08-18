@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Button from "../UI/Button";
 import { useNavigate } from "react-router-dom";
+import PokemonContext from "../../Context/PokemonContext";
 
 const PokemonCardWrapper = styled.div`
   border: 1px solid rgb(221, 221, 221);
@@ -34,39 +35,35 @@ const PokemonImage = styled.img`
   margin-top: 1rem;
 `;
 
-const PokemonCard = ({
-  pokemon,
-  selectedPokemon,
-  setSelectedPokemon,
-  buttonName,
-}) => {
-  const { img_url, korean_name, id } = pokemon;
+const PokemonCard = ({ pokemon, buttonName }) => {
+  const pokemonCtx = useContext(PokemonContext);
   const navigate = useNavigate();
 
-  // 포켓몬 추가
-  const addPokemon = () => {
-    if (selectedPokemon.length >= 6) return alert("포켓몬은 최대 6개까지 등록할 수 있습니다.");
-    if (selectedPokemon.some((pokemon) => pokemon.id === id)) return alert("이미 등록된 포켓몬입니다.");
+  const { img_url, korean_name, id } = pokemon;
 
-    setSelectedPokemon((prev) => [...prev, pokemon]);
+  // 포켓몬 추가
+  const addPokemonHandler = () => {
+    pokemonCtx.addPokemon(pokemon, id);
   };
 
   // 포켓몬 삭제
-  const deletePokemon = () => {
-    const filteredPokemon = selectedPokemon.filter((pokemon) => pokemon.id !== id);
-
-    setSelectedPokemon((prev) => [...filteredPokemon]);
+  const deletePokemonHandler = () => {
+    pokemonCtx.deletePokemon(id);
   };
 
-  const onClickEvent = buttonName === "추가" ? addPokemon : deletePokemon;
+  const onClickEvent = buttonName === "추가" ? addPokemonHandler : deletePokemonHandler;
 
   return (
-    <PokemonCardWrapper onClick={() => navigate(`/dex/${id}`, {state: {pokemonList: selectedPokemon}})}>
+    <PokemonCardWrapper
+      onClick={() =>
+        navigate(`/dex/${id}`, { state: { pokemonList: pokemonCtx.selectedPokemon } })
+      }
+    >
       <PokemonImage src={img_url} alt={korean_name} />
       <PokemonName>{korean_name}</PokemonName>
       <PokemonNumber>{`No. ` + `${id}`.padStart(3, "0")}</PokemonNumber>
-      <Button 
-        fontSize="0.875" 
+      <Button
+        fontSize="0.875"
         onClick={(e) => {
           e.stopPropagation(); // 이벤트 전파 방해
           onClickEvent();
