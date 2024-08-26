@@ -1635,6 +1635,7 @@ picocolors@^1.0.0, picocolors@^1.0.1:
     react-router-dom "^6.26.1"
     styled-components "^6.1.12"
     styled-reset "^4.5.2"
+    sweetalert2 "^11.12.4"
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
