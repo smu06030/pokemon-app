@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Dashboard from "../components/Layout/Dashboard";
+import PokemonList from "../components/Layout/PokemonList";
 
 const Dex = () => {
   return (
-    <div>Dex</div>
-  )
-}
+    <>
+      <Dashboard/>
+      <PokemonList/>
+    </>
+  );
+};
 
-export default Dex
+export default Dex;
