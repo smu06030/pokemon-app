@@ -3,6 +3,9 @@
 ## 개인 과제 소개
 react, styled-components, context API를 이용한 포켓몬 도감입니다.
 
+배포 링크 : https://smu06030.github.io/pokemon-app/ <br />
+깃허브 주소 : https://github.com/smu06030/pokemon-app
+
 ## 실행 방법
 ```bash
 # start.
